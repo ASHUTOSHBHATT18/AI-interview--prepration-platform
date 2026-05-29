@@ -1,0 +1,29 @@
+{
+  candidateName: 'Ashutosh Bhatt',
+  position: 'Backend Developer (Node.js)',
+  technicalQuestions: [
+    '{"question": "Explain the Node.js Event Loop and how it handles asynchronous operations like database queries.", "intention": "To assess deep understanding of Node.js core architecture and non-blocking I/O.", "answer": "The candidate should explain the phases of the event loop (timers, I/O callbacks, idle, poll, check, close) and how libuv handles asynchronous tasks outside the main thread."}',
+    '{"question": "How would you implement a caching layer using Redis to improve the performance of a frequently accessed MongoDB query?", "intention": "To evaluate knowledge of caching strategies and Redis integration as per the job requirements.", "answer": "The candidate should describe the Cache-Aside pattern: checking Redis first, returning data if present, otherwise querying MongoDB, updating Redis, and setting an appropriate TTL."}',
+    '{"question": "Describe your approach to optimizing a MongoDB query that is performing slowly on a collection with millions of documents.", "intention": "To test database performance tuning skills and understanding of indexing.", "answer": "The candidate should mention using explain() to analyze query plans, creating compound indexes, avoiding regex where possible, and ensuring the query is covered by the index."}',
+    '{"question": "How do you handle race conditions in a Node.js application when multiple users attempt to update the same resource simultaneously?", "intention": "To assess understanding of concurrency and distributed systems.", "answer": "The candidate should discuss optimistic locking using versioning in MongoDB or pessimistic locking/distributed locks using Redis (Redlock)."}'
+  ],
+  behavioralQuestions: [
+    `{"question": "Describe a situation where you had to optimize an existing system. What metrics did you use to measure success?", "intention": "To evaluate the candidate's focus on performance and data-driven decision making.", "answer": "The candidate should mention specific improvements like the 30% reduction in response time mentioned in their resume and the tools used for monitoring."}`,
+    '{"question": "How do you approach a situation where you and a senior developer disagree on a system design choice?", "intention": "To assess communication, collaboration, and professional maturity.", "answer": "The candidate should emphasize objective evaluation, prototyping, and alignment with project goals rather than personal preference."}'
+  ],
+  skillGaps: [
+    '{"skill": "Redis Production Experience", "severity": "Medium"}',
+    '{"skill": "Docker and Containerization", "severity": "Medium"}',
+    '{"skill": "Distributed Systems Architecture", "severity": "High"}',
+    '{"skill": "Cloud Infrastructure (AWS/GCP)", "severity": "Low"}'
+  ],
+  preparationPlan: [
+    '{"day": 1, "focus": "Advanced Node.js Internals", "tasks": ["Deep dive into the Event Loop and Libuv", "Study Worker Threads vs Clusters for CPU-intensive tasks"]}',
+    '{"day": 2, "focus": "Database Optimization", "tasks": ["Practice MongoDB aggregation pipelines", "Study advanced indexing strategies and sharding concepts"]}',
+    '{"day": 3, "focus": "Caching and Redis", "tasks": ["Implement Redis for session management and API response caching", "Learn about Redis data types and persistence models"]}',    
+    '{"day": 4, "focus": "System Design", "tasks": ["Study microservices architecture patterns", "Learn about message queues like RabbitMQ or Kafka for distributed systems"]}',        
+    '{"day": 5, "focus": "DevOps and Containerization", "tasks": ["Dockerize a MERN stack application", "Learn about Docker Compose and basic CI/CD pipelines"]}',
+    '{"day": 6, "focus": "Security and Authentication", "tasks": ["Review OAuth2.0 flows and JWT best practices", "Study common web vulnerabilities like SQLi and NoSQL injection"]}',  
+    '{"day": 7, "focus": "Mock Interviews and AI Integration", "tasks": ["Practice explaining AI integration projects (Gemini/GPT)", "Conduct a mock technical interview focusing on scalability"]}'
+  ]
+}

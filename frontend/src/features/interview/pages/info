@@ -1,0 +1,77 @@
+{
+  "_id": {
+    "$oid": "69dce7ac8b749a3066b96acb"
+  },
+  "matchScore": 85,
+  "technicalQuestions": [
+    {
+      "question": "Explain the event loop in Node.js and how it handles asynchronous I/O operations compared to multi-threaded environments.",
+      "intention": "To evaluate the candidate's core understanding of Node.js architecture and asynchronous programming.",
+      "answer": "Node.js uses a single-threaded event loop that delegates I/O tasks to the system kernel or a thread pool (Libuv). When a task completes, a callback is queued. This allows it to handle many concurrent connections efficiently without the overhead of creating new threads for every request."
+    },
+    {
+      "question": "How would you design a caching layer using Redis for an e-commerce API to reduce database load on the products collection?",
+      "intention": "To assess the candidate's ability to implement Redis for performance optimization.",
+      "answer": "I would use a Cache-Aside pattern. When a product is requested, I check Redis first (GET). If not found (cache miss), I fetch it from MongoDB, store it in Redis with an appropriate TTL (SETEX), and return the data. For updates, I would invalidate the cache to ensure data consistency."
+    }
+  ],
+  "behavioralQuestions": [
+    {
+      "question": "Describe a scenario where you identified a performance bottleneck in a backend service. What steps did you take to resolve it?",
+      "intention": "To gauge the candidate's analytical skills and experience in performance tuning.",
+      "answer": "In my E-Commerce project, I noticed slow response times on the analytics endpoint. I used MongoDB explain() to identify missing indexes and then implemented an aggregation pipeline with proper indexing, which reduced the query time significantly."
+    },
+    {
+      "question": "Tell me about a time you had to work with a technology or tool you were unfamiliar with to meet a project deadline.",
+      "intention": "To assess adaptability and the ability to learn quickly under pressure.",
+      "answer": "While building the AI Interview Report Generator, I had no prior experience with the Google Gemini API. I spent time reading the documentation and experimenting with prompt engineering to successfully integrate the AI features within the sprint timeline."
+    }
+  ],
+  "skillGaps": [
+    {
+      "skill": "Redis Production Experience",
+      "severity": "Medium"
+    },
+    {
+      "skill": "Docker and Containerization",
+      "severity": "High"
+    },
+    {
+      "skill": "Distributed Systems Architecture",
+      "severity": "Medium"
+    }
+  ],
+  "preparationPlan": [
+    {
+      "day": 1,
+      "focus": "Advanced Node.js and Database Optimization",
+      "tasks": [
+        "Deep dive into Node.js streams and buffer management",
+        "Practice advanced MongoDB indexing strategies like Compound and TTL indexes"
+      ]
+    },
+    {
+      "day": 2,
+      "focus": "Caching and Containerization",
+      "tasks": [
+        "Set up a local Redis instance and implement session management",
+        "Create a Dockerfile and docker-compose setup for a MERN application"
+      ]
+    },
+    {
+      "day": 3,
+      "focus": "System Design and Cloud Basics",
+      "tasks": [
+        "Study load balancing and horizontal vs vertical scaling",
+        "Review AWS core services like EC2, S3, and Lambda basics"
+      ]
+    }
+  ],
+  "createdAt": {
+    "$date": "2026-04-13T12:55:08.374Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-13T12:55:08.374Z"
+  },
+  "__v": 0
+}
