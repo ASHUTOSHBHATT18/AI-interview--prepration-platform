@@ -13,7 +13,7 @@ app.use(cors({
 }));
 
 app.get('/', (req, res) => {
-    res.send('Backend is running');
+  res.send('Backend is running');
 });
 
 /** require all the  routes here */
