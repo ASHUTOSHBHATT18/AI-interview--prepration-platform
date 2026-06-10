@@ -1,7 +1,6 @@
 const Groq = require("groq-sdk");
 const { z } = require("zod");
 const { zodToJsonSchema } = require("zod-to-json-schema");
-const puppeteer = require("puppeteer");
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
@@ -206,14 +205,28 @@ result.behavioralQuestions = normalizeQuestions(result.behavioralQuestions);
 }
 
 async function generatePdfFromHtml(htmlContent) {
-    const browser = await puppeteer.launch({
-      headless: true,
-        args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage'
-        ]
-    })
+    const isProduction = process.env.NODE_ENV === 'production' || process.env.RENDER;
+    let browser;
+    if (isProduction) {
+        const puppeteerCore = require('puppeteer-core');
+        const chromium = require('@sparticuz/chromium');
+        browser = await puppeteerCore.launch({
+            args: chromium.args,
+            defaultViewport: chromium.defaultViewport,
+            executablePath: await chromium.executablePath(),
+            headless: chromium.headless,
+        });
+    } else {
+        const puppeteer = require('puppeteer');
+        browser = await puppeteer.launch({
+            headless: true,
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage'
+            ]
+        });
+    }
     const page = await browser.newPage();
     await page.setContent(htmlContent, { waitUntil: "networkidle0" })
 

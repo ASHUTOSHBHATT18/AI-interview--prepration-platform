@@ -21,7 +21,11 @@ async function authUser(req,res,next){
     try {
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded;
+        req.user = {
+            ...decoded,
+            _id: decoded.userId || decoded._id,
+            userId: decoded.userId || decoded._id
+        };
         next();
 
     } catch (error) {
