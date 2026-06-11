@@ -132,8 +132,8 @@ ${JSON.stringify(zodToJsonSchema(interviewReportSchema), null, 2)}`;
     model: "llama-3.3-70b-versatile",
     messages: [
       {
-    role: "system",
-    content: `You are an expert technical interviewer. Always respond with valid JSON only. No markdown, no backticks, no explanation.
+        role: "system",
+        content: `You are an expert technical interviewer. Always respond with valid JSON only. No markdown, no backticks, no explanation.
 
 CRITICAL: You MUST use these EXACT field names, no variations:
 - "matchScore" (number 0-100)
@@ -146,7 +146,11 @@ CRITICAL: You MUST use these EXACT field names, no variations:
 DO NOT use: skillGaps, skillGap, focusArea, actionableTasks, answerGuide, keyPoints, or any other field names.
 DO NOT nest answers inside objects. "answer" must be a plain string.
 DO NOT use numbers for severity. Only use "low", "medium", or "high".`
-},
+      },
+      {
+        role: "user",
+        content: prompt
+      }
     ],
     response_format: { type: "json_object" },
   });
